@@ -1,0 +1,2 @@
+(()=>{"use strict";const e=document.querySelector(".sidebar__burger"),r=document.querySelector(".sidebar");e.addEventListener("click",(()=>{r.classList.toggle("sidebar--open")}));const s=document.querySelector(".brands__show-all"),i=document.querySelector(".brands__slider");s.addEventListener("click",(()=>{i.classList.toggle("brands__slider--expanded")})),window.innerWidth<768&&new Swiper(".swiper",{slidesPerView:1.3,spaceBetween:16,pagination:{el:".swiper-pagination",clickable:!0}})})();
+//# sourceMappingURL=bundle.js.map
