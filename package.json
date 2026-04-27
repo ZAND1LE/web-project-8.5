@@ -31,18 +31,24 @@
     "@babel/preset-env": "^7.22.20",
     "autoprefixer": "^10.4.15",
     "babel-loader": "^9.1.3",
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^6.8.1",
+    "eslint": "^10.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "file-loader": "^6.2.0",
     "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.3",
+    "prettier": "^3.8.2",
     "sass": "^1.78.0",
     "sass-loader": "^13.3.1",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.2.3"
   },
   "engineStrict": true,
   "engines": {
@@ -53,5 +59,8 @@
     "plugins": {
       "autoprefixer": {}
     }
+  },
+  "dependencies": {
+    "swiper": "^12.1.3"
   }
 }
