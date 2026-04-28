@@ -8,13 +8,19 @@ $text: #1b1c21;
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes/TTLakes-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'TT Lakes', sans-serif;
   background-color: #f8f8f8;
   color: $text;
 }
@@ -24,6 +30,7 @@ button {
   background: none;
   cursor: pointer;
   padding: 0;
+  width: auto;
 }
 
 a {
@@ -40,8 +47,6 @@ a:hover {
   min-height: 100vh;
 }
 
-
-
 .sidebar {
   width: 320px;
   min-height: 100vh;
@@ -52,7 +57,11 @@ a:hover {
   box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2);
   z-index: 10;
 }
-
+.aside,
+.sidebar {
+  height: 882px;
+  width: 276px;
+}
 .sidebar__top {
   display: flex;
   align-items: center;
@@ -103,10 +112,7 @@ a:hover {
   border-radius: 0 4px 4px 0;
 }
 
-.sidebar__item.active a {
-  color: #7e7e82;
-}
-
+.sidebar__item.active a,
 .sidebar__item:hover a {
   color: #7e7e82;
 }
@@ -157,12 +163,11 @@ a:hover {
   color: #7e7e82;
 }
 
-
-
 .main {
   flex: 1;
   padding: 24px;
   background-color: #f8f8f8;
+  overflow: hidden;
 }
 
 .main__actions {
@@ -185,14 +190,6 @@ a:hover {
 
 .main__text {
   color: #1b1c21;
-  overflow: hidden;
-  transition:
-    max-height 0,
-    3s ease;
-}
-
-.main__text__open {
-  max-height: 500px;
 }
 
 .main__hr2 {
@@ -220,8 +217,10 @@ a:hover {
   background-color: transparent;
   color: #7e7e82;
   font-size: 16px;
+  transition: all 0.2s ease;
 }
 
+.main__services-item:hover,
 .main__services-item.one {
   border-color: #b8ffec;
   background-color: #fff;
@@ -233,9 +232,43 @@ a:hover {
   gap: 32px;
 }
 
-.main__content .main__text {
+.services__text-block {
   max-width: 490px;
+}
+.title {
+  font: 'TT Lakes', sans-serif;
+}
+.services__description {
+  color: #1b1c21;
   line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.services__more-text {
+  display: none;
+}
+
+.services__toggle:checked ~ .services__description .services__more-text {
+  display: inline;
+}
+
+.services__read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #1b1c21;
+  font-weight: 500;
+}
+
+.services__read-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.services__toggle:checked ~ .services__read-btn .services__read-icon {
+  transform: rotate(180deg);
 }
 
 .services__image {
@@ -243,7 +276,6 @@ a:hover {
   width: 100%;
   border-radius: 6px;
 }
-
 
 .brands {
   margin-top: 40px;
@@ -263,24 +295,30 @@ a:hover {
 
 .brands__slider {
   margin-top: 20px;
+  overflow: visible;
 }
 
-.swiper-wrapper {
+.brands__slider .swiper-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
 .brands__item {
+  min-height: 72px;
   background: #fff;
   border: 1px solid #eaeaea;
   border-radius: 6px;
-  min-height: 72px;
+  width: auto;
 }
-
+.brands__item,
+.swiper-slide {
+  width: auto !important;
+}
 .brands__button {
-  width: 100%;
+  width: 75%;
   height: 100%;
+  min-height: 72px;
   padding: 16px;
   display: flex;
   align-items: center;
@@ -288,7 +326,8 @@ a:hover {
 }
 
 .brands__image {
-  max-width: 100%;
+  max-width: 120px;
+  object-fit: contain;
 }
 
 .equipment-section {
@@ -296,14 +335,14 @@ a:hover {
   color: #1b1c21;
 }
 
-.equipment-section {
+.equipment__slider {
+  overflow: visible;
+}
+
+.equipment__slider .swiper-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-}
-
-.equipment__header {
-  grid-column: 1 / -1;
 }
 
 .equipment {
@@ -326,28 +365,41 @@ a:hover {
   height: 40px;
 }
 
-
-
+.brands-pagination,
+.equipment-pagination {
+  display: none;
+}
+.service-price__slider .swiper-wrapper {
+  display: block;
+}
 .service-price {
   margin-top: 40px;
 }
 
-.service-price__table,
 .service-price__item {
+  width: 100% !important;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr auto;
   gap: 16px;
   align-items: center;
   color: #1b1c21;
+  padding: 16px;
+  border-radius: 6px;
+  border-bottom: 1px solid #eaeaea;
 }
-
-.service-price__table {
+.service-price__item:last-child {
+  border-bottom: none;
+}
+.service__btn {
+  justify-self: end;
+}
+.service-price__slider {
   padding: 0 16px 16px;
   color: #7e7e82;
   font-size: 14px;
 }
 
-.service-price__list {
+.service-price__item {
   background-color: #fff;
   border-radius: 6px;
 }
@@ -370,19 +422,6 @@ a:hover {
   font-weight: 700;
 }
 
-.swiper-pagination {
-  position: relative;
-  margin-top: 16px;
-}
-
-.swiper-pagination-bullet {
-  background: #b5b6bc;
-  opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-  background: #ff3e79;
-}
 .commercial {
   max-width: 420px;
   margin-top: 24px;
@@ -399,7 +438,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  max-width: 220px;
+  max-width: 240px;
   color: #1b1c21;
   font-weight: 700;
   font-size: 16px;
@@ -424,11 +463,8 @@ a:hover {
 }
 
 @media (max-width: 1120px) {
-  .swiper-wrapper {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .equipment-section {
+  .brands__slider .swiper-wrapper,
+  .equipment__slider .swiper-wrapper {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -475,17 +511,47 @@ a:hover {
     width: 100%;
   }
 
-  .swiper-wrapper {
+  .brands__slider,
+  .equipment__slider {
+    overflow: hidden;
+    padding-bottom: 32px;
+  }
+
+  .brands__slider .swiper-wrapper,
+  .equipment__slider .swiper-wrapper,
+  .service-price__slider .swiper-wrapper {
     display: flex;
     gap: 0;
   }
 
   .brands__item {
+    min-width: auto;
+    height: 72px;
+  }
+
+  .equipment {
     min-width: 240px;
   }
 
-  .equipment-section {
-    grid-template-columns: 1fr;
+  .brands-pagination,
+  .equipment-pagination,
+  .price-pagination {
+    display: block;
+    position: relative;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #7e7e82;
+    opacity: 1;
+    display: inline-block;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #7e7e82;
   }
 
   .service-price__table {
@@ -496,24 +562,7 @@ a:hover {
     grid-template-columns: 1fr;
     gap: 8px;
   }
-  .brands__slider {
-    overflow: hidden;
-    padding-bottom: 32px;
-  }
-  .brands__slider .swiper-wrapper {
-    display: flex;
-  }
-  .brands__slider .swiper-slide {
-    width: auto;
-  }
-  .brands__item {
-    min-width: 240px;
-    height: 72px;
-  }
-  .swiper-pagination {
-    position: relative;
-    margin-top: 16px;
-  }
+
   .commercial {
     max-width: 288px;
     margin-top: 16px;
@@ -524,7 +573,7 @@ a:hover {
   }
 
   .commercial__link {
-    max-width: 200px;
+    max-width: 220px;
     font-size: 14px;
   }
 

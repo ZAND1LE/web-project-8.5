@@ -2,12 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="page">
@@ -36,9 +42,9 @@
 
       <nav class="sidebar__nav">
         <ul class="sidebar__list">
-          <li class="sidebar__item active">
-            <a href="#">Services and solutions</a>
-          </li>
+          <li class="sidebar__item active"
+            ><a href="#">Services and solutions</a></li
+          >
           <li class="sidebar__item"><a href="#">Corporate clients</a></li>
           <li class="sidebar__item"><a href="#">Equipment sellers</a></li>
           <li class="sidebar__item"><a href="#">Partners</a></li>
@@ -99,21 +105,21 @@
       </div>
 
       <section class="main__services">
-        <h1 class="main__services-title">Services and support</h1>
+        <h1 class="main__services title">Services and support</h1>
 
         <div class="services__menu">
-          <button class="main__services-item one" type="button">
-            Brands we repair
-          </button>
-          <button class="main__services-item" type="button">
-            Devices we repair
-          </button>
-          <button class="main__services-item" type="button">
-            Additional services
-          </button>
-          <button class="main__services-item" type="button">
-            Special prices
-          </button>
+          <button class="main__services-item one" type="button"
+            >Brands we repair</button
+          >
+          <button class="main__services-item" type="button"
+            >Devices we repair</button
+          >
+          <button class="main__services-item" type="button"
+            >Additional services</button
+          >
+          <button class="main__services-item" type="button"
+            >Special prices</button
+          >
           <button class="main__services-item" type="button">Reviews</button>
         </div>
 
@@ -132,6 +138,7 @@
               manufacturer's warranty.
 
               <span class="services__more-text">
+                <br /><br />
                 We have been successfully operating since 1992 and have earned a
                 reputation as a reliable partner, as evidenced by our large
                 number of loyal customers.
@@ -140,7 +147,7 @@
 
             <label for="read-more-toggle" class="services__read-btn">
               <img
-                src="./img/Expand icon.png"
+                src="./img/Expand Icon main text.png"
                 alt=""
                 class="services__read-icon"
               />
@@ -242,7 +249,7 @@
             </div>
           </div>
 
-          <div class="swiper-pagination"></div>
+          <div class="swiper-pagination brands-pagination"></div>
         </div>
       </section>
 
@@ -251,24 +258,30 @@
           <h2>Repair of equipment from various brands</h2>
         </div>
 
-        <div class="equipment">
-          <span class="equipment__repair">Laptop Repairs</span>
-          <img src="./img/Go Icon.png" alt="" class="equipment__img" />
-        </div>
+        <div class="equipment__slider swiper">
+          <div class="swiper-wrapper">
+            <div class="equipment swiper-slide">
+              <span class="equipment__repair">Laptop Repairs</span>
+              <img src="./img/Go Icon.png" alt="" class="equipment__img" />
+            </div>
 
-        <div class="equipment">
-          <span class="equipment__repair">Tablet Repairs</span>
-          <img src="./img/Go Icon.png" alt="" class="equipment__img" />
-        </div>
+            <div class="equipment swiper-slide">
+              <span class="equipment__repair">Tablet Repairs</span>
+              <img src="./img/Go Icon.png" alt="" class="equipment__img" />
+            </div>
 
-        <div class="equipment">
-          <span class="equipment__repair">PC Repairs</span>
-          <img src="./img/Go Icon.png" alt="" class="equipment__img" />
-        </div>
+            <div class="equipment swiper-slide">
+              <span class="equipment__repair">PC Repairs</span>
+              <img src="./img/Go Icon.png" alt="" class="equipment__img" />
+            </div>
 
-        <div class="equipment">
-          <span class="equipment__repair">Monitor Repairs</span>
-          <img src="./img/Go Icon.png" alt="" class="equipment__img" />
+            <div class="equipment swiper-slide">
+              <span class="equipment__repair">Monitor Repairs</span>
+              <img src="./img/Go Icon.png" alt="" class="equipment__img" />
+            </div>
+          </div>
+
+          <div class="swiper-pagination equipment-pagination"></div>
         </div>
       </section>
 
@@ -277,77 +290,70 @@
           <h2>Service prices</h2>
         </div>
 
-        <div class="service-price__table">
-          <span class="service__table">Repair service</span>
-          <span class="service__table">Price</span>
-          <span class="service__table">Deadline</span>
-          <span class="service__table"></span>
-        </div>
+        <div class="service-price__slider swiper">
+          <div class="swiper-wrapper">
+            <div class="service-price__item swiper-slide">
+              <span class="service__name">Diagnostics</span>
+              <span class="service__price">Free of charge</span>
+              <span class="service__time">30 min</span>
+              <button class="service__btn">Order</button>
+            </div>
 
-        <div class="service-price__list">
-          <div class="service-price__item">
-            <span class="service__name">Diagnostics</span>
-            <span class="service__price">Free of charge</span>
-            <span class="service__time">30 min</span>
-            <button class="service__btn" type="button">Order</button>
+            <div class="service-price__item swiper-slide">
+              <span class="service__name">Display replacement</span>
+              <span class="service__price">1,000 ₽</span>
+              <span class="service__time">30–120 min</span>
+              <button class="service__btn">Order</button>
+            </div>
+
+            <div class="service-price__item swiper-slide">
+              <span class="service__name">Polyphonic speaker replacement</span>
+              <span class="service__price">1,000 ₽</span>
+              <span class="service__time">30–120 min</span>
+              <button class="service__btn">Order</button>
+            </div>
+
+            <div class="service-price__item swiper-slide">
+              <span class="service__name">Testing with a technical report</span>
+              <span class="service__price">1,000 ₽</span>
+              <span class="service__time">30–120 min</span>
+              <button class="service__btn">Order</button>
+            </div>
+
+            <div class="service-price__item swiper-slide">
+              <span class="service__name">Software replacement</span>
+              <span class="service__price">1,000 ₽</span>
+              <span class="service__time">30–120 min</span>
+              <button class="service__btn">Order</button>
+            </div>
           </div>
 
-          <div class="service-price__item">
-            <span class="service__name">Display replacement</span>
-            <span class="service__price">1,000 ₽</span>
-            <span class="service__time">30–120 min</span>
-            <button class="service__btn" type="button">Order</button>
-          </div>
-
-          <div class="service-price__item">
-            <span class="service__name"> Polyphonic speaker replacement </span>
-            <span class="service__price">1,000 ₽</span>
-            <span class="service__time">30–120 min</span>
-            <button class="service__btn" type="button">Order</button>
-          </div>
-
-          <div class="service-price__item">
-            <span class="service__name">Testing with a technical report</span>
-            <span class="service__price">1,000 ₽</span>
-            <span class="service__time">30–120 min</span>
-            <button class="service__btn" type="button">Order</button>
-          </div>
-
-          <div class="service-price__item">
-            <span class="service__name">Software replacement</span>
-            <span class="service__price">1,000 ₽</span>
-            <span class="service__time">30–120 min</span>
-            <button class="service__btn" type="button">Order</button>
-          </div>
+          <div class="swiper-pagination price-pagination"></div>
         </div>
       </section>
-<section class="commercial">
-  <p class="commercial__text">
-    All prices include VAT. The cost of repair is indicated for a single service.
-    To receive a commercial proposal for ongoing maintenance, please submit a
-    request.
-  </p>
 
-  <a href="#" class="commercial__link">
-    <span>Get a commercial proposal</span>
-    <img src="./img/More Icon.png" alt="more-icon" class="commercial__icon" />
-  </a>
-</section>
+      <section class="commercial">
+        <p class="commercial__text">
+          All prices include VAT. The cost of repair is indicated for a single
+          service. To receive a commercial proposal for ongoing maintenance,
+          please submit a request.
+        </p>
 
-<footer class="footer">
-  <p class="footer__copyright">© 2019 CPS</p>
-  <p class="footer__team">Developed by the Apesong team</p>
-  <p class="footer__privacy">Privacy Policy</p>
-  <p class="footer__note">
-    The information presented on this page is not a public offer
-  </p>
-</footer>
+        <a href="#" class="commercial__link">
+          <span>Get a commercial proposal</span>
+          <img src="./img/More Icon.png" alt="" class="commercial__icon" />
+        </a>
+      </section>
 
+      <footer class="footer">
+        <p class="footer__copyright">© 2019 CPS</p>
+        <p class="footer__team">Developed by the Apesong team</p>
+        <p class="footer__privacy">Privacy Policy</p>
+        <p class="footer__note">
+          The information presented on this page is not a public offer
+        </p>
+      </footer>
     </main>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
