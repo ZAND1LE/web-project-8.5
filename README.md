@@ -1,3 +1,5 @@
+Web page link - https://zand1le.github.io/web-project-8.5/
+
 # Webpack Static Site Starter Kit
 
 ## Project Requirements
