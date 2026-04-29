@@ -1,11 +1,20 @@
 $bgColor: #24292e;
 $text: #1b1c21;
+$gray: #7e7e82;
+$bg: #f8f8f8;
+$pink: #ff3e79;
+$mint: #41f6d7;
 
 @font-face {
-  font-family: 'Comic';
-  src: url('../fonts/comic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes/TTLakes-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'TT Lakes';
+  src: url('../fonts/TTLakes/TTLakes-Medium.woff') format('woff');
+  font-weight: 500;
 }
 
 @font-face {
@@ -21,7 +30,8 @@ $text: #1b1c21;
 body {
   margin: 0;
   font-family: 'TT Lakes', sans-serif;
-  background-color: #f8f8f8;
+  font-weight: 400;
+  background-color: $bg;
   color: $text;
 }
 
@@ -31,6 +41,7 @@ button {
   cursor: pointer;
   padding: 0;
   width: auto;
+  font-family: inherit;
 }
 
 a {
@@ -53,15 +64,11 @@ a:hover {
   display: flex;
   flex-direction: column;
   background: #fff;
-  padding: 16px 24px;
+  padding: 16px 24px 32px;
   box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2);
   z-index: 10;
 }
-.aside,
-.sidebar {
-  height: 882px;
-  width: 276px;
-}
+
 .sidebar__top {
   display: flex;
   align-items: center;
@@ -70,10 +77,22 @@ a:hover {
 
 .sidebar__burger,
 .sidebar__logo,
-.sidebar__search {
+.sidebar__search,
+.sidebar__call,
+.sidebar__chat,
+.sidebar__profile {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.sidebar__burger img,
+.sidebar__search img,
+.sidebar__call img,
+.sidebar__chat img,
+.sidebar__profile img {
+  width: 40px;
+  height: 40px;
 }
 
 .sidebar__logo {
@@ -94,6 +113,7 @@ a:hover {
   position: relative;
   padding: 12px 0;
   font-size: 16px;
+  font-weight: 400;
   cursor: pointer;
 }
 
@@ -108,13 +128,13 @@ a:hover {
   top: 8px;
   width: 4px;
   height: 32px;
-  background-color: #41f6d7;
+  background-color: $mint;
   border-radius: 0 4px 4px 0;
 }
 
 .sidebar__item.active a,
 .sidebar__item:hover a {
-  color: #7e7e82;
+  color: $gray;
 }
 
 .sidebar__bottom {
@@ -127,12 +147,10 @@ a:hover {
   margin-bottom: 16px;
 }
 
-.sidebar__call,
-.sidebar__chat,
-.sidebar__profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sidebar__email {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .sidebar__phone {
@@ -157,17 +175,45 @@ a:hover {
 .sidebar__lang-option button {
   color: #1b1c21;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .sidebar__lang-option button:hover {
-  color: #7e7e82;
+  color: $gray;
 }
 
 .main {
   flex: 1;
-  padding: 24px;
-  background-color: #f8f8f8;
+  padding: 24px 32px;
+  background-color: $bg;
   overflow: hidden;
+}
+
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.main__services-title {
+  position: relative;
+  color: #1b1c21;
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.main__services-title::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 0;
+  width: 4px;
+  height: 40px;
+  background-color: $mint;
+  border-radius: 0 4px 4px 0;
 }
 
 .main__actions {
@@ -175,10 +221,11 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   gap: 24px;
-  margin-bottom: 24px;
 }
 
-.main__menu-icon {
+.main__menu-icon,
+.main__mobile-logo,
+.main__hr2 {
   display: none;
 }
 
@@ -190,16 +237,12 @@ a:hover {
 
 .main__text {
   color: #1b1c21;
+  font-weight: 500;
 }
 
-.main__hr2 {
-  display: none;
-}
-
-.main__services-title {
-  color: #1b1c21;
-  font-size: 28px;
-  margin: 0 0 24px;
+.main__icon {
+  width: 40px;
+  height: 40px;
 }
 
 .services__menu {
@@ -215,8 +258,9 @@ a:hover {
   border: 2px solid transparent;
   border-radius: 6px;
   background-color: transparent;
-  color: #7e7e82;
+  color: $gray;
   font-size: 16px;
+  font-weight: 400;
   transition: all 0.2s ease;
 }
 
@@ -235,13 +279,13 @@ a:hover {
 .services__text-block {
   max-width: 490px;
 }
-.title {
-  font: 'TT Lakes', sans-serif;
-}
+
 .services__description {
   color: #1b1c21;
   line-height: 1.5;
   margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .services__more-text {
@@ -277,14 +321,16 @@ a:hover {
   border-radius: 6px;
 }
 
-.brands {
+.brands,
+.equipment-section,
+.service-price {
   margin-top: 40px;
 }
 
 .brands__title,
 .equipment__header h2,
 .service-price__header h2 {
-  color: #7e7e82;
+  color: $gray;
   font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;
@@ -293,12 +339,13 @@ a:hover {
   margin: 0 0 24px;
 }
 
-.brands__slider {
-  margin-top: 20px;
+.brands__slider,
+.equipment__slider {
   overflow: visible;
 }
 
-.brands__slider .swiper-wrapper {
+.brands__slider .swiper-wrapper,
+.equipment__slider .swiper-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
@@ -306,47 +353,62 @@ a:hover {
 
 .brands__item {
   min-height: 72px;
+  height: 72px;
   background: #fff;
   border: 1px solid #eaeaea;
   border-radius: 6px;
-  width: auto;
 }
-.brands__item,
-.swiper-slide {
-  width: auto !important;
-}
+
 .brands__button {
-  width: 75%;
+  width: 100%;
   height: 100%;
   min-height: 72px;
-  padding: 16px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .brands__image {
   max-width: 120px;
+  max-height: 45px;
   object-fit: contain;
 }
 
-.equipment-section {
-  margin-top: 40px;
+.brands__go {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.brands__item--extra {
+  display: none;
+}
+
+.brands__item--extra.brands__item--visible {
+  display: block;
+}
+
+.brands__toggle,
+.equipment__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 500;
   color: #1b1c21;
 }
 
-.equipment__slider {
-  overflow: visible;
-}
-
-.equipment__slider .swiper-wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+.brands__toggle-icon,
+.equipment__toggle-icon {
+  width: 16px;
+  height: 16px;
 }
 
 .equipment {
   min-height: 160px;
+  height: 160px;
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 6px;
@@ -358,6 +420,8 @@ a:hover {
 
 .equipment__repair {
   align-self: flex-start;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .equipment__img {
@@ -365,61 +429,86 @@ a:hover {
   height: 40px;
 }
 
-.brands-pagination,
-.equipment-pagination {
+.equipment--extra {
   display: none;
 }
-.service-price__slider .swiper-wrapper {
-  display: block;
-}
-.service-price {
-  margin-top: 40px;
+
+.equipment--extra.equipment--visible {
+  display: flex;
 }
 
-.service-price__item {
-  width: 100% !important;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
-  gap: 16px;
-  align-items: center;
-  color: #1b1c21;
-  padding: 16px;
-  border-radius: 6px;
-  border-bottom: 1px solid #eaeaea;
-}
-.service-price__item:last-child {
-  border-bottom: none;
-}
-.service__btn {
-  justify-self: end;
-}
-.service-price__slider {
-  padding: 0 16px 16px;
-  color: #7e7e82;
-  font-size: 14px;
+.brands-pagination,
+.equipment-pagination,
+.price-pagination {
+  display: none;
 }
 
-.service-price__item {
+.service-price__table {
   background-color: #fff;
   border-radius: 6px;
+  overflow: hidden;
 }
 
-.service-price__item {
-  padding: 16px;
-  border-bottom: 1px solid #eaeaea;
+.service-price__head,
+.service-price__row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 120px;
+  align-items: center;
+  column-gap: 16px;
 }
 
-.service-price__item:last-child {
-  border-bottom: none;
+.service-price__head {
+  padding: 0 24px 16px;
+  background-color: $bg;
+  color: $gray;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.service-price__row {
+  min-height: 64px;
+  padding: 16px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+}
+
+.service-price__row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+  height: 1px;
+  background-color: #eaeaea;
+}
+
+.service-price__slider {
+  display: none;
 }
 
 .service__btn {
-  background-color: #ff3e79;
+  justify-self: end;
+  width: 119px;
+  height: 32px;
+  background-color: $pink;
   color: #fff;
   border-radius: 16px;
-  padding: 6px 16px;
+  padding: 0 16px;
   text-transform: uppercase;
+  font-size: 12px;
   font-weight: 700;
+  text-align: left;
+  position: relative;
+}
+
+.service__btn::after {
+  content: '›';
+  position: absolute;
+  right: 14px;
+  top: 4px;
+  font-size: 22px;
+  line-height: 22px;
 }
 
 .commercial {
@@ -432,15 +521,16 @@ a:hover {
   margin: 0 0 16px;
   font-size: 14px;
   line-height: 1.5;
+  font-weight: 400;
 }
 
 .commercial__link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  max-width: 240px;
+  max-width: 260px;
   color: #1b1c21;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
 }
 
@@ -451,15 +541,18 @@ a:hover {
 
 .footer {
   margin-top: 40px;
-  padding: 24px 0;
-  color: #7e7e82;
+  padding: 32px 0;
+  color: $gray;
   font-size: 14px;
   line-height: 1.4;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .footer p {
-  margin: 0 0 8px;
+  margin: 0;
+  max-width: 320px;
 }
 
 @media (max-width: 1120px) {
@@ -487,32 +580,75 @@ a:hover {
   }
 
   .main {
-    padding: 16px;
+    padding: 0 16px 24px;
+  }
+
+  .main__header {
+    height: 88px;
+    margin: 0 -16px 24px;
+    padding: 0 16px;
+    background-color: #fff;
+  }
+
+  .main__services-title {
+    position: absolute;
+    top: 112px;
+    left: 16px;
+  }
+
+  .main__services-title::before {
+    left: -16px;
   }
 
   .main__actions {
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: space-between;
+    gap: 16px;
   }
 
-  .main__menu-icon {
+  .main__menu-icon,
+  .main__mobile-logo {
     display: flex;
+    align-items: center;
+  }
+
+  .main__menu-icon img,
+  .main__icon {
+    width: 40px;
+    height: 40px;
   }
 
   .main__action {
+    display: flex;
+  }
+
+  .main__action span {
     display: none;
   }
 
   .main__content {
     flex-direction: column;
     align-items: flex-start;
+    margin: 0 -16px;
+  }
+
+  .services__text-block {
+    padding: 0 16px;
+  }
+
+  .main__services {
+    padding-top: 64px;
   }
 
   .services__image {
     width: 100%;
+    max-width: none;
+    border-radius: 0;
   }
 
   .brands__slider,
-  .equipment__slider {
+  .equipment__slider,
+  .service-price__slider {
     overflow: hidden;
     padding-bottom: 32px;
   }
@@ -525,12 +661,26 @@ a:hover {
   }
 
   .brands__item {
-    min-width: auto;
-    height: 72px;
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .brands__item--extra {
+    display: block;
   }
 
   .equipment {
+    width: 240px;
     min-width: 240px;
+  }
+
+  .equipment--extra {
+    display: flex;
+  }
+
+  .brands__toggle,
+  .equipment__toggle {
+    display: none;
   }
 
   .brands-pagination,
@@ -545,22 +695,81 @@ a:hover {
   .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background: #7e7e82;
+    background: #dddddd;
     opacity: 1;
     display: inline-block;
   }
 
   .swiper-pagination-bullet-active {
-    background: #7e7e82;
+    background: #b5b6bc;
   }
 
   .service-price__table {
     display: none;
   }
 
+  .service-price__slider {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 32px;
+  }
+
   .service-price__item {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    width: 260px;
+    min-width: 260px;
+    min-height: 200px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'label1 label1'
+      'name name'
+      'label2 label2'
+      'price price'
+      'label3 label3'
+      'time button';
+    row-gap: 4px;
+    font-size: 14px;
+  }
+
+  .service-price__label {
+    color: $gray;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .service-price__item .service-price__label:nth-of-type(1) {
+    grid-area: label1;
+  }
+
+  .service-price__item .service__name {
+    grid-area: name;
+    margin-bottom: 8px;
+  }
+
+  .service-price__item .service-price__label:nth-of-type(2) {
+    grid-area: label2;
+  }
+
+  .service-price__item .service__price {
+    grid-area: price;
+    margin-bottom: 8px;
+  }
+
+  .service-price__item .service-price__label:nth-of-type(3) {
+    grid-area: label3;
+  }
+
+  .service-price__item .service__time {
+    grid-area: time;
+    align-self: center;
+  }
+
+  .service-price__item .service__btn {
+    grid-area: button;
+    align-self: end;
   }
 
   .commercial {
@@ -578,6 +787,9 @@ a:hover {
   }
 
   .footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
     margin-top: 32px;
     padding-bottom: 24px;
     font-size: 12px;
