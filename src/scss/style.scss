@@ -352,33 +352,32 @@ a:hover {
 }
 
 .brands__item {
-  min-height: 72px;
-  height: 72px;
-  background: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 6px;
+  height: 70px;
+  width: 210px;
+  background: transparent;
+  border: none;
+  padding-left: 8px;
 }
 
 .brands__button {
-  width: 100%;
-  height: 100%;
-  min-height: 72px;
-  padding: 0 16px;
+  width: 210px;
+  height: 70px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .brands__image {
-  max-width: 120px;
-  max-height: 45px;
   object-fit: contain;
+  height: 72px;
 }
 
 .brands__go {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+  display: none;
 }
 
 .brands__item--extra {
